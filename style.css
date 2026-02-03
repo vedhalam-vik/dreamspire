@@ -86,4 +86,90 @@ section {
 
 .hero-main-img {
     filter: brightness(0.8) contrast(1.1); /* Makes the construction imagery look more 'pro' */
+
+}
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* For Tablets (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero-grid, .contact-wrapper, .hero-pro .hero-grid {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* For Mobile Phones (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* Disable custom cursor on mobile (it doesn't work with touch) */
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+    
+    * {
+        cursor: auto !important; /* Revert to default touch behavior */
+    }
+
+    /* Navbar Mobile Fix */
+    .nav-menu {
+        display: none; /* Hide standard menu for a hamburger menu later */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    /* Stack BOQ Table for Mobile */
+    .table-container {
+        overflow-x: auto; /* Allow horizontal scrolling for large engineering tables */
+    }
+
+    .pro-table {
+        min-width: 800px; /* Ensures table data doesn't squish */
+    }
+
+    /* Buttons should be full width on mobile for easier tapping */
+    .cta-group {
+        flex-direction: column;
+    }
+
+    .btn-main, .btn-ghost {
+        width: 100%;
+    }
+}
+
+/* Fix for the Internal Management System (IMS) Sidebar */
+@media (max-width: 900px) {
+    body {
+        flex-direction: column; /* Move sidebar to top or bottom */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 20px;
+    }
+
+    .main-view {
+        padding: 20px;
+    }
 }
